@@ -22,7 +22,7 @@ const subjects = ['yo', 'tu', 'el/ella', 'nos.', 'vos.', 'ellos'];
 
 export default () => {
     const [verb, setVerb] = useState('ser');
-    const [tense, setTense] = useState(options[0]['value']);
+    const [tense, setTense] = useState(options[0]);
     const [results, setResults] = useState([]);
 
     const changeVerb = (value) => {
@@ -39,7 +39,7 @@ export default () => {
             try {
                 results[i] = {
                     subject: subjects[i], 
-                    conjugation: SpanishVerbs.getConjugation(verb, tense, i)
+                    conjugation: SpanishVerbs.getConjugation(verb, tense.value, i)
                 };
             } catch (error) {
                 results = [];
@@ -59,10 +59,10 @@ export default () => {
     }, [verb, tense]);
 
     return (
-        <div>
-            <Dropdown options={options} onDropdownChange={changeTense} />
+        <div id="conjugator">
+            <Dropdown label="Tense Seç:" options={options} onSelectedChange={changeTense} selected={tense} />
             <Form defaultTerm={verb} onFormChange={changeVerb}/>
-            <Table _className="conjugation table" data={results} errorMsg="Sonuc bulunamadi."/>
+            <Table _className="ui celled unstackable table" data={results} errorMsg={verb.length === 0 ? 'Lütfen bir fiil yazın.' : 'Sonuç bulunamadı.'}/>
         </div>
     );
 };

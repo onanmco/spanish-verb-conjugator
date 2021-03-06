@@ -1,5 +1,4 @@
 import React from 'react';
-import '../assets/css/table.css';
 
 export default ({ data, _className, errorMsg }) => {
     const renderedResults = data.map((chunk, index) => {
@@ -13,11 +12,11 @@ export default ({ data, _className, errorMsg }) => {
 
     return (
         renderedResults['length'] > 0 ? <div>
-            <table border="true" className={_className}>
+            <table id="table" border="true" className={_className}>
                 <tbody>
                     {renderedResults}
                 </tbody>
             </table>
-        </div> : <div>{errorMsg}</div>
+        </div> : <div id="table-error-msg" >{errorMsg}</div>
     );
 };

@@ -1,0 +1,40 @@
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+#conjugator {
+    display: flex !important;
+    flex-flow: column;
+    justify-content: flex-end;
+    width: 65%;
+}
+
+@media (min-width: 768px) {
+    #conjugator {
+        width: 50%;
+    }
+}
+
+@media (min-width: 992px) {
+    #conjugator {
+        width: 40%;
+    }
+}
+
+@media (min-width: 1200px) {
+    #conjugator {
+        width: 30%;
+    }
+}
+
+#dropdown, #form, #table, #table-error-msg{
+    margin-top: 15px;
+}
+
+#table-error-msg {
+    color: crimson;
+    font-weight: bold;
+}
