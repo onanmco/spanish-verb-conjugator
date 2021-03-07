@@ -63,6 +63,8 @@ export default () => {
             <Dropdown label="Tense Seç:" options={options} onSelectedChange={changeTense} selected={tense} />
             <Form defaultTerm={verb} onFormChange={changeVerb}/>
             <Table _className="ui celled unstackable table" data={results} errorMsg={verb.length === 0 ? 'Lütfen bir fiil yazın.' : 'Sonuç bulunamadı.'}/>
+            <br/>
+            <span>Preview Deployment - onanmco@gmail.com - M.Cem ONAN</span>
         </div>
     );
 };
